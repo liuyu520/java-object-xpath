@@ -171,7 +171,7 @@ class ObjectXpathTest {
         result = processXpath("//engine/@volume");
         assertEquals(2.0D, result);
 
-        result = processXpath("/gears[1]/characteristics[2]");
+        result = processXpath("/gears[0]/characteristics[1]");
         assertEquals(sedan.getGears().get(0).characteristics.get(1), result);
 
         result = processXpath("/gears[@id='111']/characteristics");
@@ -180,19 +180,19 @@ class ObjectXpathTest {
         result = processXpath("/gears/gear[@id='111']/characteristics");
         assertEquals(sedan.getGears().get(0).characteristics, result);
 
-        result = processXpath("/gears[1]//characteristics[1]/@details");
+        result = processXpath("/gears[0]//characteristics[0]/@details");
         assertEquals(sedan.getGears().get(0).characteristics.get(0).details, result);
 
-        result = processXpath("//gears[1]//characteristics[2]/@details");
+        result = processXpath("//gears[0]//characteristics[1]/@details");
         assertNull(result);
 
-        result = processXpath("/countryCodes[1]");
+        result = processXpath("/countryCodes[0]");
         assertEquals(sedan.countryCodes.get(0), result);
 
-        result = processXpath("/countryCodes[2]");
+        result = processXpath("/countryCodes[1]");
         assertEquals(sedan.countryCodes.get(1), result);
 
-        result = processXpath("/gears[2]//characteristics");
+        result = processXpath("/gears[1]//characteristics");
         assertEquals(sedan.getGears().get(1).characteristics, result);
 
         result = processXpath("/engine");

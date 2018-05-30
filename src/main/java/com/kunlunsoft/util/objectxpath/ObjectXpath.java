@@ -36,7 +36,7 @@ public class ObjectXpath {
      * {@link Set} of wrapper types considered as 'primitive'.
      */
     private static final Set<Class> primitiveTypes = new HashSet<>();
-
+    private static boolean arrayIndexStartFromOne = false;
     static {
         primitiveTypes.add(Boolean.class);
         primitiveTypes.add(Character.class);
@@ -70,7 +70,10 @@ public class ObjectXpath {
                 if (foundNodes.size() == 1) {
                     node = foundNodes.get(0);
                     if (xPathNodeWithIndex(xPathNode)) { //one node returned, pick a child with index
-                        int index = ((NodeWithIndex) xPathNode).index - 1;
+                        int index = ((NodeWithIndex) xPathNode).index /*- 1*/;
+                        if (arrayIndexStartFromOne) {
+                            index--;
+                        }
                         Optional<Node> child = getNodeWithIndex(node.children, index);
                         if (child.isPresent()) {
                             nodes.add(child.get());
@@ -88,7 +91,10 @@ public class ObjectXpath {
                     }
                 } else {
                     if (xPathNodeWithIndex(xPathNode)) { //multiple nodes returned, pick a node with index
-                        int index = ((NodeWithIndex) xPathNode).index - 1;
+                        int index = ((NodeWithIndex) xPathNode).index /*- 1*/;
+                        if (arrayIndexStartFromOne) {
+                            index--;
+                        }
                         Optional<Node> _node = getNodeWithIndex(foundNodes, index);
                         if (_node.isPresent()) {
                             nodes.add(_node.get());

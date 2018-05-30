@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>rk.tools</groupId>
+    <groupId>com.kunlunsoft.tools</groupId>
     <artifactId>object-xpath</artifactId>
-    <version>0.1</version>
+    <version>0.0.1</version>
 
     <build>
         <plugins>
@@ -33,7 +33,11 @@
             <version>5.1.0</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+        </dependency>
     </dependencies>
 
 </project>
