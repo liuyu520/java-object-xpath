@@ -1,0 +1,18 @@
+package com.kunlunsoft.util.objectxpath.object;
+
+import java.util.List;
+
+public class Engine {
+    private double volume;
+    public List<Characteristic> characteristics;
+    public List<Gear> gears;
+    public Gear valve;
+
+    public double getVolume() {
+        return volume;
+    }
+
+    public void setVolume(double volume) {
+        this.volume = volume;
+    }
+}
